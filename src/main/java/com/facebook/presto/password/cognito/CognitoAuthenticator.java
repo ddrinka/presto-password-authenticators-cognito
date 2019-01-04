@@ -75,7 +75,7 @@ public class CognitoAuthenticator
 
     private Principal authenticate(String user, String password)
     {
-        if(password == this.password) {
+        if(password.equals(this.password)) {
             log.debug("Authentication successful for user [%s]", user);
             return new BasicPrincipal(user);
         }
