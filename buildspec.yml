@@ -9,7 +9,7 @@ phases:
       java: corretto11
   build:
     commands:
-#      - mvn versions:update-parent -DparentVersion=$prestoVersion
+      - mvn versions:update-parent -DparentVersion=$PRESTO_VERSION
       - mvn install
 artifacts:
   files:
