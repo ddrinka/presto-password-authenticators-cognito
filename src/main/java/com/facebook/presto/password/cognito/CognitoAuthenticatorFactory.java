@@ -11,13 +11,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.facebook.presto.password.cognito;
+package io.prestosql.password.cognito;
 
-import com.facebook.presto.spi.security.PasswordAuthenticator;
-import com.facebook.presto.spi.security.PasswordAuthenticatorFactory;
 import com.google.inject.Injector;
 import com.google.inject.Scopes;
 import io.airlift.bootstrap.Bootstrap;
+import io.prestosql.spi.security.PasswordAuthenticator;
+import io.prestosql.spi.security.PasswordAuthenticatorFactory;
 
 import java.util.Map;
 

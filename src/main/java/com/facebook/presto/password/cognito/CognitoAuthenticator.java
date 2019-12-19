@@ -11,30 +11,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.facebook.presto.password.cognito;
+package io.prestosql.password.cognito;
 
-import com.facebook.presto.spi.security.AccessDeniedException;
-import com.facebook.presto.spi.security.BasicPrincipal;
-import com.facebook.presto.spi.security.PasswordAuthenticator;
-import com.google.common.base.VerifyException;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 import io.airlift.log.Logger;
+import io.prestosql.spi.security.AccessDeniedException;
+import io.prestosql.spi.security.BasicPrincipal;
+import io.prestosql.spi.security.PasswordAuthenticator;
 
 import javax.inject.Inject;
 
 import java.security.Principal;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 
 import static com.google.common.base.MoreObjects.toStringHelper;
-import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.base.Throwables.throwIfInstanceOf;
-import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
@@ -43,8 +37,7 @@ public class CognitoAuthenticator
 {
     private static final Logger log = Logger.get(CognitoAuthenticator.class);
     private final String password;
-	private final LoadingCache<Credentials, Principal> authenticationCache;
-
+    private final LoadingCache<Credentials, Principal> authenticationCache;
 
     @Inject
     public CognitoAuthenticator(CognitoConfig serverConfig)
@@ -75,7 +68,7 @@ public class CognitoAuthenticator
 
     private Principal authenticate(String user, String password)
     {
-        if(password.equals(this.password)) {
+        if (password.equals(this.password)) {
             log.debug("Authentication successful for user [%s]", user);
             return new BasicPrincipal(user);
         }

@@ -11,11 +11,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.facebook.presto.password.cognito;
+package io.prestosql.password.cognito;
 
-import com.facebook.presto.spi.Plugin;
-import com.facebook.presto.spi.security.PasswordAuthenticatorFactory;
 import com.google.common.collect.ImmutableList;
+import io.prestosql.spi.Plugin;
+import io.prestosql.spi.security.PasswordAuthenticatorFactory;
 
 public class CognitoAuthenticatorPlugin
         implements Plugin

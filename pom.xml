@@ -1,11 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <version>0.1-SNAPSHOT</version>
+  <packaging>presto-plugin</packaging>
 
-  <packaging>jar</packaging>
-
-  <groupId>com.facebook.presto.password.cognito</groupId>
   <artifactId>presto-password-authenticators-cognito</artifactId>
   <name>presto-password-authenticators-cognito</name>
   <description>An AWS Cognito-based Password Authenticator for Presto</description>
@@ -19,50 +16,58 @@
     </license>
   </licenses>
 
-  <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <air.version>0.178</air.version>
-    <presto.version>0.206</presto.version>
-  </properties>
+  <parent>
+    <groupId>io.prestosql</groupId>
+    <artifactId>presto-root</artifactId>
+    <version>326</version>
+  </parent>
 
   <dependencies>
 
     <dependency>
       <groupId>io.airlift</groupId>
       <artifactId>bootstrap</artifactId>
-      <version>${air.version}</version>
     </dependency>
 
     <dependency>
       <groupId>io.airlift</groupId>
       <artifactId>configuration</artifactId>
-      <version>${air.version}</version>
     </dependency>
 
     <dependency>
       <groupId>io.airlift</groupId>
       <artifactId>log</artifactId>
-      <version>${air.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.airlift</groupId>
+      <artifactId>units</artifactId>
     </dependency>
 
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>27.0.1-jre</version>
     </dependency>
 
     <dependency>
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
-      <version>4.2.2</version>
     </dependency>
 
     <dependency>
-      <groupId>com.facebook.presto</groupId>
+      <groupId>io.prestosql</groupId>
       <artifactId>presto-spi</artifactId>
-      <version>${presto.version}</version>
       <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
     </dependency>
 
   </dependencies>

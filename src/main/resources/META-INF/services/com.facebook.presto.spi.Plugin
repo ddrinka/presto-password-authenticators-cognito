@@ -1,1 +1,1 @@
-com.facebook.presto.password.cognito.CognitoAuthenticatorPlugin
+io.prestosql.password.cognito.CognitoAuthenticatorPlugin
