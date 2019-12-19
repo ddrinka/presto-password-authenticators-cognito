@@ -15,7 +15,7 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
+  
   <parent>
     <groupId>io.prestosql</groupId>
     <artifactId>presto-root</artifactId>

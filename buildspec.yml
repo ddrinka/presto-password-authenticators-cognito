@@ -1,0 +1,20 @@
+version: 0.2
+
+env:
+  variables:
+    PRESTO_VERSION: "326"
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  build:
+    commands:
+#      - mvn versions:update-parent -DparentVersion=$prestoVersion
+      - mvn install
+artifacts:
+  files:
+    - target/presto-password-authenticators-cognito-*.jar
+  discard-paths: yes
+cache:
+  paths:
+    - /root/.m2/
