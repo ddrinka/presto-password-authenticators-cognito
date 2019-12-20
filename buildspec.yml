@@ -2,6 +2,7 @@ version: 0.2
 
 env:
   variables:
+    GITHUB_TOKEN: "invalid"
     PRESTO_VERSION: "326"
 phases:
   install:
@@ -11,10 +12,6 @@ phases:
     commands:
       - sed -i "s/PRESTO_VERSION_TBD/$PRESTO_VERSION/" pom.xml
       - mvn -q install
-artifacts:
-  files:
-    - target/presto-password-authenticators-cognito-*.jar
-  discard-paths: yes
-cache:
-  paths:
-    - /root/.m2/
+  post-build:
+    commands:
+      - tools/createRelease.sh $GITHUB_TOKEN ddrinka/presto-password-authenticators-cognito $CODEBUILD_RESOLVED_SOURCE_VERSION $PRESTO_VERSION $PRESTO_VERSION target/ presto-password-authenticators-cognito-$PRESTO_VERSION.jar
