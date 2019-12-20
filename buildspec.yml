@@ -12,6 +12,6 @@ phases:
     commands:
       - sed -i "s/PRESTO_VERSION_TBD/$PRESTO_VERSION/" pom.xml
       - mvn -q install
-  post-build:
+  post_build:
     commands:
       - tools/createRelease.sh $GITHUB_TOKEN ddrinka/presto-password-authenticators-cognito $CODEBUILD_RESOLVED_SOURCE_VERSION $PRESTO_VERSION $PRESTO_VERSION target/ presto-password-authenticators-cognito-$PRESTO_VERSION.jar
