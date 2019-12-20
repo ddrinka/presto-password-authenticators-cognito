@@ -7,7 +7,7 @@ path=$4
 filename=$5
 
 upload_url=$(curl -s -H "Authorization: token $token"  \
-     -d "{\"tag_name\": \"$release_version\", \"prerelease\": \"true\"}"  \
+     -d "{\"tag_name\": \"$release_version\", \"prerelease\": true}"  \
      "https://api.github.com/repos/$repo/releases" | jq -r '.upload_url')
 
 upload_url="${upload_url%\{*}"
