@@ -16,5 +16,5 @@ echo "uploading asset to release to url : $upload_url"
 
 curl -s -H "Authorization: token $token"  \
         -H "Content-Type: application/zip" \
-        --data-binary "$path/$filename"  \
+        --data-binary "@$path/$filename"  \
         "$upload_url?name=$filename"
