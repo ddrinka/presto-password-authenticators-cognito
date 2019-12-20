@@ -9,7 +9,7 @@ phases:
       java: corretto11
   build:
     commands:
-      - sed -i 's/PRESTO_VERSION_TBD/$PRESTO_VERSION/' pom.xml
+      - sed -i "s/PRESTO_VERSION_TBD/$PRESTO_VERSION/" pom.xml
       - mvn -q install
 artifacts:
   files:
