@@ -14,4 +14,4 @@ phases:
       - mvn -q install
   post_build:
     commands:
-      - tools/createRelease.sh $GITHUB_TOKEN ddrinka/presto-password-authenticators-cognito $PRESTO_VERSION target presto-password-authenticators-cognito-$PRESTO_VERSION.jar
+      - tools/createRelease.sh $GITHUB_TOKEN ddrinka/presto-password-authenticators-cognito $CODEBUILD_RESOLVED_SOURCE_VERSION $PRESTO_VERSION target presto-password-authenticators-cognito-$PRESTO_VERSION.jar
