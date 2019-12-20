@@ -9,8 +9,8 @@ phases:
       java: corretto11
   build:
     commands:
-      - sed -i .bak 's/PRESTO_VERSION_TBD/$PRESTO_VERSION/' pom.xml
-      - mvn install
+      - sed -i 's/PRESTO_VERSION_TBD/$PRESTO_VERSION/' pom.xml
+      - mvn -q install
 artifacts:
   files:
     - target/presto-password-authenticators-cognito-*.jar
